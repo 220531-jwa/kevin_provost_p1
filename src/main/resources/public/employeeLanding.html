@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/ersCommon.css">
+    <title>Employee Landing Page</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body onload="setupEmployee()">
+    <div id="main">
+        <div>
+            <h1>Employee Landing Page</h1>
+        </div>
+
+        <div><button type="button" class="btn btn-dark" id="reimbSubmit">Create a New Request</button>
+            <button type="button" class="btn btn-dark" id="viewReimbs">View Your Reimbursements</button>
+            <button type="button" class="btn btn-dark" id="editReimbs">Edit Your Reimbursements</button>
+        </div>
+        <hr>
+        <section id="query">
+            <div>
+                <label for="reimbStatus">View Your Requests by Status</label>
+                <select id="reimbStatus">
+                    <option selected value="0">New</option>
+                    <option value="1">Pending</option>
+                    <option value="2">In Review</option>
+                    <option value="3">Completed</option>
+                    <option value="4">Rejected</option>
+                </select>
+                <div><button type="button" id="get">Get</button>
+                    <button type="button" id="clear">Clear</button>
+                </div>
+            </div>
+        </section>
+        <table id="empReimbTable" class="table">
+            <thead id="empReimbTableHeader">
+                <tr>
+                    <th>Reimbursement ID</th>
+                    <th>Reimbursement Type</th>
+                    <th>Grading Format</th>
+                    <th>Minimum Passing Grade</th>
+                    <th>Reimbursement Amount</th>
+                    <th>Reimbursement Submitted</th>
+                    <th>Event Date</th>
+                    <th>Event Time</th>
+                    <th>Event Location</th>
+                    <th>Reimbursement Description</th>
+                    <th>Reimbursement Complete</th>
+                    <th>Reimbursement Status</th>
+                    <th>Manager Notes</th>
+                    <th>Urgent</th>
+                </tr>
+            </thead>
+            <tbody id="empReimbTableBody">
+
+            </tbody>
+    </div>
+
+    <script type="text/javascript">
+        document.getElementById("reimbSubmit").onclick = function () {
+            location.href = "http://localhost:8080/newRequests.html";
+        };
+        document.getElementById("editReimbs").onclick = function () {
+            location.href = "http://localhost:8080/editRequests.html";
+        };
+        document.getElementById("viewReimbs").onclick = function () {
+            location.href = "http://localhost:8080/employeeLanding.html";
+        };
+        document.getElementById("clear").onclick = function () {
+            let dataSection = document.getElementById('empReimbTableBody');
+            dataSection.innerHTML = "";
+        }
+    </script>
+    <script src="./scripts/employeeRequestFetch.js"></script>
+    <!-- Bootstrap -->
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/ersCommon.css">
+    <title>Manage Your Requests</title>
+</head>
+
+<body onload="setupEmployee()">
+    <div id="main">
+        <div>
+            <h1>Reimbursement Edits Page</h1>
+        </div>
+
+        <div><button type="button" class="btn btn-dark" id="reimbSubmit">Create a New Request</button>
+            <button type="button" class="btn btn-dark" id="viewReimbs">View Your Reimbursements</button>
+            <button type="button" class="btn btn-dark" id="editReimbs">Edit Your Reimbursements</button>
+        </div>
+        <hr>
+    </div>
+    <script type="text/javascript">
+        document.getElementById("reimbSubmit").onclick = function () {
+            location.href = "http://localhost:8080/newRequests.html";
+        };
+        document.getElementById("editReimbs").onclick = function () {
+            location.href = "http://localhost:8080/editRequests.html";
+        };
+        document.getElementById("viewReimbs").onclick = function () {
+            location.href = "http://localhost:8080/employeeLanding.html";
+        };
+    </script>
+    <script src="./scripts/displayResults.js"></script>
+    <!-- Bootstrap -->
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./styles/ersCommon.css">
+    <title>Manager Landing Page</title>
+</head>
+
+<body>
+    <div id="main">
+        <nav>
+            <button type="button" class="btn btn-dark" id="viewReimbs">View Reimbursements</button>
+            <button type="button" class="btn btn-dark" id="editReimbs">Update Reimbursements</button>
+        </nav>
+
+        <hr>
+
+        <h2>View Reimbursements</h2>
+        <hr>
+
+        <div>
+            <section id="query">
+                <label for="reimbStatus">View Requests by Status</label>
+                <select id="reimbStatus">
+                    <option selected value="1">Pending</option>
+                    <option value="2">In Review</option>
+                    <option value="3">Completed</option>
+                    <option value="4">Rejected</option>
+                </select>
+                <button type="button" id="getStatus">Get</button>
+            </section>
+        </div>
+        <hr>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <section id="data">
+
+                        <table id="reimbResultTable" class="table">
+                            <thead id="reimbResultTableHeader">
+                                <tr>
+                                    <th>Reimbursement ID</th>
+                                    <th>Employee ID</th>
+                                    <th>Reimbursement Type</th>
+                                    <th>Grading Format</th>
+                                    <th>Minimum Passing Grade</th>
+                                    <th>Reimbursement Amount</th>
+                                    <th>Reimbursement Submitted</th>
+                                    <th>Event Date</th>
+                                    <th>Event Time</th>
+                                    <th>Event Location</th>
+                                    <th>Reimbursement Description</th>
+                                    <th>Reimbursement Complete</th>
+                                    <th>Reimbursement Status</th>
+                                    <th>Manager Notes</th>
+                                    <th>Urgent</th>
+                                </tr>
+                            </thead>
+                            <tbody id="reimbResultTableBody">
+
+                            </tbody>
+                        </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        document.getElementById("editReimbs").onclick = function () {
+            location.href = "http://localhost:8080/manageRequests.html";
+        };
+        document.getElementById("viewReimbs").onclick = function () {
+            location.href = "http://localhost:8080/managerLanding.html";
+        };
+    </script>
+    <script src="./scripts/statusFetch.js"></script>
+    <!-- Bootstrap -->
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
