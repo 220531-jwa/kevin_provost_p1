@@ -1,6 +1,9 @@
 //let apiURL = 'http://localhost:8080/managerLanding';
 
 document.getElementById('getStatus').onclick = getData;
+let dataSection = document.getElementById('reimbResultTableBody');
+
+
 
 function getData() {
     var userInput = document.getElementById('reimbStatus').value;
@@ -14,6 +17,7 @@ function getData() {
         if (response.status === 200) {
             let requests = await response.json();
             console.log(requests);
+            dataSection.innerHTML = "";
             for (i = 0; i < requests.length; i++) {
                 let req = requests[i];
                 populateData(req);
@@ -27,11 +31,6 @@ function getData() {
 function populateData(requests) {
 
     console.log(requests);
-
-    let dataSection = document.getElementById('reimbResultTableBody');
-
-    dataSection.innerHTML = "";
-
 
     let reimbId = requests.reimbId;
     let empId = requests.empId;

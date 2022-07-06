@@ -16,12 +16,20 @@ public class ReimbsController {
 	public void createReimb(Context ctx) throws Exception {
 		int empId = Integer.parseInt(ctx.pathParam("empId"));
 		Reimbs reimbFromRequestBody = ctx.bodyAsClass(Reimbs.class);
+		Reimbs r = new Reimbs();
 
 		try {
-			rs.createReimb(reimbFromRequestBody, empId);
+			r = rs.createReimb(reimbFromRequestBody, empId);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+
+		if (r != null) {
+			ctx.status(201);
+			ctx.json(r);
+		} else {
+			ctx.status(409);
 		}
 
 	}

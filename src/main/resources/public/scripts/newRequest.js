@@ -1,18 +1,7 @@
 let baseUrl = "http://localhost:8080/employeeLanding";
 
-// const reimbRequest = {
-//     "reimbId": '1',
-//     "empId": empId,
-//     "reimbType": reimbType,
-//     "gradingFormat": gradingFormat,
-//     "minPassingGrade": minPassingGrade,
-//     "reimbAmount": reimbAmount,
-//     "reimbSubmitted": reimbSubmitted,
-//     "eventDate": eventDate,
-//     "eventTime": eventTime,
-//     "eventLocation": eventLocation,
-//     "reimbDesc":reimbDesc
-// }
+let responseMessageBodySuccess = document.getElementById("reponseMessageBodySuccess");
+let responseMessageBodyFail = document.getElementById("reponseMessageBodyFail");
 
 function setupEmployee() {
     let user = sessionStorage.getItem("user");
@@ -47,6 +36,8 @@ async function submitRequest() {
         reimbAmount = (reimbAmount * 0.3);
     }
 
+    console.log(reimbAmount);
+
     let reimbRequest = {
         "reimbId": '1',
         "empId": empId,
@@ -78,9 +69,14 @@ async function submitRequest() {
     let resJson = await res.json()
         .then((resp) => {
             console.log(resp);
+            responseMessageBodyFail.innerHTML("");
+            responseMessageBodySuccess.innerHTML("Successfully Created");
+
         })
 
         .catch((error) => {
             console.log(error);
+            responseMessageBodyFail.innerHTML("Failed to Create");
+            responseMessageBodySuccess.innerHTML("");
         })
 }
